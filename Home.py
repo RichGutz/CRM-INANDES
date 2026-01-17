@@ -13,83 +13,26 @@ st.title("CRM Inandes - Sistema de Gestión")
 st.caption("Última actualización: 2026-01-17")
 st.info("🚀 RAILWAY_TEST_VERSION_17ENE2026_1347 🚀")
 
-st.markdown("### Diagrama de Flujo CRM Inandes")
-st.markdown("Basado en el análisis de requerimientos (Audios de WhatsApp).")
+st.markdown("---")
 
-st.graphviz_chart("""
-digraph CRM_Inandes {
-    rankdir=TB;
-    node [shape=box, style="filled,rounded", fontname="Arial", fontsize=10];
-    edge [fontname="Arial", fontsize=9];
+st.markdown("""
+### 📋 Módulos Disponibles
 
-    # --- ACTORES ---
-    User [label="Partícipe (Inversionista)", shape=person, fillcolor="#E1F5FE"];
-    Admin [label="Administrador Inandes", shape=person, fillcolor="#E1F5FE"];
+Utiliza el menú lateral para navegar entre los diferentes módulos del sistema:
 
-    # --- FLUJO PRINCIPAL (Columna Vertebral) ---
-    
-    subgraph cluster_mod1 {
-        label = "PASO 1: Maestro de Partícipes\n(Alta de Cliente)";
-        style = filled;
-        color = "#E3F2FD";
-        
-        AltaParticipe [label="Alta de Partícipe", shape=diamond, fillcolor="#BBDEFB"];
-        MasterDB [label="BASE DE DATOS MAESTRA", shape=cylinder, style="filled,dashed", fillcolor="#90CAF9"];
-        
-        AltaParticipe -> MasterDB;
-    }
+#### 🤖 Chat WhatsApp
+Simulador del bot de WhatsApp para atención al inversionista.
 
-    subgraph cluster_mod2 {
-        label = "PASO 2: Gestión de Fondos\n(Operativa Diaria)";
-        style = filled;
-        color = "#FFF3E0";
-        
-        InputCapital [label="Registro Ingreso Capital", fillcolor="#FFE0B2"];
-        CierreBimestre [label="Cierre Bimestre", shape=doublecircle, fillcolor="#FFAB91"];
-        
-        InputCapital -> CierreBimestre [label="Procesa Periodo"];
-    }
+#### 📊 Logic DB Complete
+Diagrama de flujo completo del CRM incluyendo:
+- Mantenimiento / Configuración
+- Maestro de Partícipes
+- Gestión de Inversiones
+- Procesos (Cierre Bimestral)
+- Tesorería & Reportes
+- Agente IA / Bot WhatsApp
 
-    subgraph cluster_mod3 {
-        label = "PASO 3: Cuenta Corriente & Reportes\n(Saldos y Documentos)";
-        style = filled;
-        color = "#E8F5E9";
-        
-        Posicion [label="Cálculo Rentabilidad", fillcolor="#C8E6C9"];
-        GenerarDocs [label="Generación PDF:\nEstado Cuenta y Certificados", shape=note, fillcolor="#A5D6A7"];
+---
 
-        Posicion -> GenerarDocs;
-    }
-
-    subgraph cluster_bot {
-        label = "PASO FINAL: Bot WhatsApp\n(Atención al Inversionista)";
-        style = filled;
-        color = "#F3E5F5";
-        penwidth = 2;
-        
-        Inicio [label="📱 Chat WhatsApp", shape=circle, fillcolor="#E1BEE7"];
-        Verif [label="Verificación Identidad", shape=diamond, fillcolor="#CE93D8"];
-        Respuestabot [label="🤖 RESPUESTA AUTOMÁTICA:\n- Saldo Actual\n- Último Pago\n- PDF Adjunto", shape=box, fillcolor="#BA68C8", fontcolor="white"];
-        
-        Inicio -> Verif -> Respuestabot;
-    }
-
-    # --- CONEXIONES ENTRE MÓDULOS (Flujo Lógico) ---
-    Admin -> AltaParticipe [label="Alta"];
-    Admin -> InputCapital [label="Inversión"];
-    
-    MasterDB -> InputCapital [style="dashed", label="Vincula"];
-    CierreBimestre -> Posicion [label="Alimenta"];
-    
-    # --- CONEXIONES AL BOT ---
-    User -> Inicio [label="Consulta"];
-    
-    MasterDB -> Verif [style="dotted", label="Valida Datos"];
-    Posicion -> Respuestabot [style="dotted", label="Lee Saldo"];
-    GenerarDocs -> Respuestabot [style="dotted", label="Obtiene PDF"];
-
-    # --- FORZAR ORDEN VERTICAL ESCRITO ---
-    edge [style=invis];
-    MasterDB -> InputCapital -> Posicion -> Inicio;
-}
-""", use_container_width=True)
+**Desarrollado para Inandes** | Última actualización: 2026-01-17
+""")
