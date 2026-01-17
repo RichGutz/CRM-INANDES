@@ -6,6 +6,9 @@ import os
 # Ajuste de path para imports si fuera necesario
 sys.path.insert(0, os.path.abspath('.'))
 
+# Forzar limpieza de caché en cada carga
+st.cache_data.clear()
+
 st.set_page_config(page_title="Flujo CRM Inandes", layout="wide")
 
 # render_header("CRM Inandes - Flujo de Procesos")
