@@ -37,7 +37,12 @@ def get_supabase_client() -> Client:
         if SUPABASE_URL is None or SUPABASE_KEY is None:
             SUPABASE_URL = os.environ.get("SUPABASE_URL")
             SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
-            print("Supabase credentials loaded from environment variables.")
+            if SUPABASE_URL and SUPABASE_KEY:
+                print("Supabase credentials loaded from environment variables.")
+            else:
+                print(f"DEBUG: SUPABASE_URL found: {SUPABASE_URL is not None}")
+                print(f"DEBUG: SUPABASE_KEY found: {SUPABASE_KEY is not None}")
+                print(f"DEBUG: Available env vars: {[k for k in os.environ.keys() if 'SUPABASE' in k.upper()]}")
 
         if not SUPABASE_URL or not SUPABASE_KEY:
             raise ValueError(
