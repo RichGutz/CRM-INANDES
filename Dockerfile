@@ -1,5 +1,5 @@
 FROM python:3.9-slim
-# Railway CRM-INANDES - Auto-deploy enabled
+# Railway rebuild: 2026-01-17-15:52 - Participes Module v1.0
 
 # 1. Instalar dependencias de sistema para Graphviz
 RUN apt-get update && apt-get install -y \
