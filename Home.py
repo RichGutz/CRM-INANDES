@@ -9,7 +9,8 @@ sys.path.insert(0, os.path.abspath('.'))
 st.set_page_config(page_title="Flujo CRM Inandes", layout="wide")
 
 # render_header("CRM Inandes - Flujo de Procesos")
-st.title("CRM Inandes - V2 (Updated)")
+st.title("CRM Inandes - Sistema de Gestión")
+st.caption("Última actualización: 2026-01-17")
 
 st.markdown("### Diagrama de Flujo CRM Inandes")
 st.markdown("Basado en el análisis de requerimientos (Audios de WhatsApp).")
