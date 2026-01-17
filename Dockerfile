@@ -1,5 +1,5 @@
 FROM python:3.9-slim
-# Railway rebuild: 2026-01-17-15:52 - Participes Module v1.0
+# Railway FORCE REBUILD: 2026-01-17-16:11 - Fix Supabase env vars
 
 # 1. Instalar dependencias de sistema para Graphviz
 RUN apt-get update && apt-get install -y \
