@@ -10,8 +10,8 @@ st.set_page_config(page_title="Flujo CRM Inandes", layout="wide")
 
 # render_header("CRM Inandes - Flujo de Procesos")
 st.title("CRM Inandes - Sistema de Gestión")
-st.caption("Última actualización: 2026-01-17")
-st.info("🚀 RAILWAY_TEST_VERSION_17ENE2026_1347 🚀")
+st.caption("Última actualización: 2026-01-17 13:57")
+st.success("✅ VERSION_2_DEPLOYED_SUCCESSFULLY ✅")
 
 st.markdown("---")
 
