@@ -115,15 +115,18 @@ def mostrar_busqueda():
     with col3:
         st.write("")
         st.write("")
-        excel_data = exportar_excel_db()
-        if excel_data:
-            st.download_button(
-                label="📥 Exportar Todo (Excel)",
-                data=excel_data,
-                file_name=f"participes_{dt.date.today()}.xlsx",
-                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                use_container_width=True
-            )
+        # Only generate Excel when button is clicked, not on page load
+        if st.button("📥 Exportar Todo (Excel)", use_container_width=True):
+            excel_data = exportar_excel_db()
+            if excel_data:
+                st.download_button(
+                    label="⬇️ Descargar Excel",
+                    data=excel_data,
+                    file_name=f"participes_{dt.date.today()}.xlsx",
+                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    use_container_width=True,
+                    key="download_excel"
+                )
     
     # Search results
     if search_query:
